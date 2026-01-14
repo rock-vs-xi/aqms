@@ -1,0 +1,5 @@
+{
+  "name": "AMA - Anonymous Messaging Vue",
+  "description": "A precise recreation of the AMA anonymous messaging interface using Vue 3 and Gemini AI.",
+  "requestFramePermissions": []
+}
