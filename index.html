@@ -26,17 +26,6 @@
       background: linear-gradient(90deg, #FF00CC 0%, #FF3366 50%, #FF6600 100%);
       background-size: 200% auto;
     }
-    .bubble-tail-left::before {
-      content: '';
-      position: absolute;
-      left: -8px;
-      top: 16px;
-      width: 16px;
-      height: 16px;
-      background-color: white;
-      transform: rotate(45deg);
-      border-radius: 2px;
-    }
     .shadow-soft {
       box-shadow: 0 4px 12px rgba(0,0,0,0.05);
     }
@@ -45,7 +34,6 @@
     }
     [v-cloak] { display: none; }
     
-    /* 骰子旋转动画 */
     @keyframes dice-roll {
       0% { transform: rotate(0) scale(1); }
       25% { transform: rotate(-15deg) scale(1.1); }
@@ -56,7 +44,6 @@
       animation: dice-roll 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
 
-    /* 吸引力动画：强力脉冲 */
     @keyframes pulse-attraction {
       0%, 100% { 
         transform: scale(1); 
@@ -71,7 +58,6 @@
       animation: pulse-attraction 1.5s infinite ease-in-out;
     }
 
-    /* 发送中状态：平滑呼吸灯 + 背景流动，不改变大小避免跳动 */
     @keyframes sending-glow {
       0%, 100% { filter: brightness(1) saturate(1); box-shadow: 0 10px 25px rgba(255, 51, 102, 0.3); }
       50% { filter: brightness(1.2) saturate(1.2); box-shadow: 0 15px 35px rgba(255, 51, 102, 0.5); }
@@ -84,7 +70,6 @@
       animation: sending-glow 1s infinite ease-in-out, background-move 1.5s infinite linear;
     }
 
-    /* 吸引力动画：流光效果 */
     .animate-shimmer {
       position: relative;
       overflow: hidden;
@@ -125,6 +110,11 @@
 </head>
 <body>
   <div id="root" v-cloak></div>
+  <script>
+    // 本地运行修复：模拟环境变量对象
+    // 如果你有 API Key，填入下方引用的引号中
+    window.process = { env: { API_KEY: '' } };
+  </script>
   <script type="module" src="index.js"></script>
 </body>
 </html>

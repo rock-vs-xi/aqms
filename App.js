@@ -284,7 +284,7 @@ export default {
         </div>
 
         <div v-else class="flex flex-col">
-          <div class="bg-white rounded-[26px] p-6 shadow-soft min-h-[220px] sm:min-h-[260px] flex flex-col relative transition-all duration-200 focus-within:ring-2 focus-within:ring-pink-100 border border-white overflow-hidden">
+          <div class="bg-white rounded-[26px] p-6 shadow-soft min-h-[220px] sm:min-h-[260px] flex flex-col relative transition-all duration-200 border border-white overflow-hidden">
             <textarea
               ref="textareaRef"
               v-model="answer"
@@ -344,7 +344,8 @@ export default {
           </div>
         </div>
 
-        <div class="flex items-center justify-center gap-2 text-[10px] text-[#A1A7B2] font-black uppercase tracking-widest pt-8 pb-4">
+        <!-- 隐私政策区域：输入焦点时也隐藏 -->
+        <div v-show="!isFocused" class="flex items-center justify-center gap-2 text-[10px] text-[#A1A7B2] font-black uppercase tracking-widest pt-8 pb-4 animate-in fade-in duration-300">
           <a href="#" class="underline underline-offset-4 decoration-1 hover:text-gray-600 transition-colors">Terms of Use</a>
           <span class="text-[#D1D5DB] font-normal">&amp;</span>
           <a href="#" class="underline underline-offset-4 decoration-1 hover:text-gray-600 transition-colors">Privacy Policy</a>
